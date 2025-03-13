@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Client</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Future Client</h1>
+        <div class="button-grid">
+            <button onclick="showWeatherDialog()">Погода</button>
+            <button onclick="showSearchDialog('products')">Поиск товаров</button>
+            <button onclick="showSearchDialog('food')">Поиск продуктов</button>
+            <button onclick="handlePlaces('restaurants')">Рестораны</button>
+            <button onclick="handlePlaces('hotels')">Отели</button>
+            <button onclick="handleAddress()">Текущий адрес</button>
+            <button onclick="showSearchDialog('web')">Веб-поиск</button>
+            <button onclick="showPlacesSearchDialog()">Поиск мест</button>
+            <button onclick="showExactSearchDialog()">Точный поиск</button>
+        </div>
+    </div>
+
+    <div id="weather-dialog" class="dialog hidden">
+        <h2>Погода</h2>
+        <button id="toggle-mode-btn" onclick="toggleMode()">Автоматическое определение</button>
+        <input type="text" id="city-input" placeholder="Введите город" class="hidden">
+        <button onclick="getWeather()">Получить погоду</button>
+        <p id="weather-result"></p>
+    </div>
+
+    <div id="search-dialog" class="dialog hidden">
+        <h2 id="search-title">Поиск</h2>
+        <input type="text" id="search-input" placeholder="Введите запрос">
+        <button onclick="doSearch()">Поиск</button>
+        <div id="search-results"></div>
+    </div>
+
+    <div id="result-dialog" class="dialog hidden">
+        <h2 id="result-title">Результаты</h2>
+        <div id="result-content"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
