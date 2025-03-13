@@ -2,16 +2,16 @@ name: Build Executables
 
 on:
   push:
-    branches: [ "dev" ]  # Запускать при пуше в ветку main
-  workflow_dispatch:      # Разрешить ручной запуск
+    branches: [ "dev" ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]  # Сборка для Linux и Windows
-        python-version: ["3.11"]             # Версия Python
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.11"]
 
     steps:
     - name: Checkout code
