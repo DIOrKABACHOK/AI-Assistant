@@ -110,11 +110,12 @@ async function getWeather() {
             alert("Введите название города.");
             return;
         }
+        city = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
     }
 
     try {
         const userInfo = await getUserInfo();
-        const params = { city, ...userInfo };
+        const params = { q: city, ...userInfo }
 
         const encryptedParams = encryptedClient.encryptRequest(params);
 

@@ -162,7 +162,7 @@ class WeatherClient(BaseClient):
     }
 
     def get_weather(self, city=None):
-        data = self._get("get_weather", {"city": city} if city else {})
+        data = self._get("get_weather", {"q": city} if city else {})
         return data
 
     def format_weather(self, data):
