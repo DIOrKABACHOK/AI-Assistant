@@ -10,6 +10,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
+      fail-fast: false
 
     steps:
     - name: Checkout code
@@ -22,11 +23,13 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        python -m pip install --upgrade pip
+        pip install pyinstaller -r apps/WindowsApp/requirements.txt
 
     - name: Build executable
       run: |
-        pyinstaller --onefile --windowed main.py
+        cd apps/WindowsAp
+        pyinstaller --onefile --windowed client.py
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
